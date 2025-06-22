@@ -24,7 +24,7 @@ This application provides a clean Qt-based GUI to monitor and interact with your
 
 ## 📸 Screenshot
 
-![Screenshot](./screenshot001.png)
+![Screenshot](./screenshot.png)
 
 ---
 
