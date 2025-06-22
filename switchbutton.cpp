@@ -31,7 +31,6 @@ void SwitchButton::mousePressEvent(QMouseEvent *event) {
         setChecked(!isChecked());
         event->accept();
         update();
-        emit toggled(isChecked());
     } else {
         QCheckBox::mousePressEvent(event);
     }

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "switchbutton.h"
+#include "adrenalinslider.h"
 #include <QProcess>
 #include <iostream>
 #include <QDebug>
@@ -117,7 +118,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->verticalLayout->addWidget(switchBtn);
 
     connect(switchBtn, &QCheckBox::toggled, this, [=](bool checked) {
-        qDebug() << "Switch:" << (checked ? "ON" : "OFF");
+        std::cerr << "Switch 1:" << (checked ? "ON" : "OFF") << std::endl;
     });
 
 
@@ -128,7 +129,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->verticalLayout_2->addWidget(switchBtn2);
 
     connect(switchBtn2, &QCheckBox::toggled, this, [=](bool checked) {
-        qDebug() << "Switch:" << (checked ? "ON" : "OFF");
+        std::cerr << "Switch 2:" << (checked ? "ON" : "OFF") << std::endl;
+    });
+
+
+
+
+
+
+    AdrenalinSlider *powerSlider = new AdrenalinSlider(0, 100, this);
+    ui->powerVertical->addWidget(powerSlider);
+
+    connect(powerSlider, &AdrenalinSlider::valueChanged, this, [](int val) {
+        std::cerr << "Power Limit set to:" << val << "W";
     });
 
 
